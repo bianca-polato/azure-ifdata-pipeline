@@ -1,12 +1,14 @@
-#Azure IFData Pipeline
+# Azure SGS Selic Pipeline
 
-Data pipeline: IFData API (Banco Central do Brasil) -> Azure Blob Storange -> Azure Data Factory (ingestion & processing)
+Data pipeline: API SGS (BCB Selic - série 11) → Landing (JSON) → Silver (CSV limpo) → Azure Blob / Orquestração.
 
-#Stack 
+## Stack
+
 - Python (requests, pandas)
-- Azure Blob Storange 
-- Azure Data Factory 
+- Azure Blob Storage
+- Azure Data Factory / Databricks (próximas etapas)
 
-#Estrutura
-- src/ingestion/ifdata_ingest.py -scrip de ingestão da API IFData
-- data/lading/ - camada bronze(dados brutos)
+## Estrutura
+
+- src/ingestion/sgs_selic_ingest.py – ingestão série SGS Selic (bronze em data/landing)
+- src/transformation/sgs_selic_silver.py – limpeza e ordenação (silver em data/silver)
